@@ -17,6 +17,9 @@ using School.Services.Services.FileService;
 
 using System;
 using School.Services.Services.MaterialService;
+using School.Services.Tokens;
+using School.Services.UserService;
+using School.Services.EmailServices;
 
 namespace School.API.Extensions
 {
@@ -41,6 +44,12 @@ namespace School.API.Extensions
             services.AddScoped<IMaterialService, MaterialService>();
             services.AddScoped<IMaterialRepository, MaterialRepository>();
             services.AddScoped<IClassRepository, ClassRepository>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddTransient<IEmailService, EmailService>();
+
+
+
 
             services.AddAutoMapper(typeof(MappingProfile));
 
